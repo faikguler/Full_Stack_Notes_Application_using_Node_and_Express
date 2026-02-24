@@ -7,7 +7,7 @@
     "start": "node assets/js/server.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Faik",
   "license": "ISC",
   "description": "Full Stack Notes Application",
   "dependencies": {
