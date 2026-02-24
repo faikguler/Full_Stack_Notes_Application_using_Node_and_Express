@@ -25,9 +25,21 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentFilter = 'all';
     let currentEditId = null;
 
+    filterAll.addEventListener('click', () => filterNotes('all'));
+    filterPersonal.addEventListener('click', () => filterNotes('Personal'));
+    filterWork.addEventListener('click', () => filterNotes('Work'));
+    filterStudy.addEventListener('click', () => filterNotes('Study'));
+    filterIdeas.addEventListener('click', () => filterNotes('Ideas'));
+
     async function showNotes() {
         const res = await fetch(API_URL);
-        const notes = await res.json();
+        let notes = await res.json();
+
+        //filter
+        if (currentFilter !== 'all') {
+            notes = notes.filter(note => note.category === currentFilter);
+        }
+
 
         let html = '';
         let lastDate = '';
@@ -154,7 +166,23 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
     
-
+    function filterNotes(filter) {
+        currentFilter = filter;
+        
+        filterAll.classList.remove('active');
+        filterPersonal.classList.remove('active');
+        filterWork.classList.remove('active');
+        filterStudy.classList.remove('active');
+        filterIdeas.classList.remove('active');
+        
+        if (filter === 'all') filterAll.classList.add('active');
+        if (filter === 'Personal') filterPersonal.classList.add('active');
+        if (filter === 'Work') filterWork.classList.add('active');
+        if (filter === 'Study') filterStudy.classList.add('active');
+        if (filter === 'Ideas') filterIdeas.classList.add('active');
+        
+        showNotes(); 
+    }
     
     showNotes();
 
