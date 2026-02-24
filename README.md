@@ -7,15 +7,17 @@ Full Stack Notes Application with Node.js and Express.
 
 ## Features
 - Create, read, update, delete notes
-- Filter by category
+- Filter notes by category (Personal, Work, Study, Ideas)
 - Persistent storage with JSON file
-- Responsive design with Bootstrap
+- Responsive design with Bootstrap 5.3
+- Real-time updates with fetch API
 
 ## Technologies
-- Node.js, Express
-- HTML5, CSS3, JavaScript
-- Bootstrap 5
-- Render (deployment)
+- **Backend:** Node.js, Express
+- **Frontend:** HTML5, CSS3, JavaScript
+- **Styling:** Bootstrap 5.3, Bootstrap Icons
+- **Database:** JSON file (lightweight storage)
+- **Deployment:** Render.com
 
 ## Local Setup
 ```bash
